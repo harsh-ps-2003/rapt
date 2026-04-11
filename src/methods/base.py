@@ -9,6 +9,17 @@ from typing import Awaitable, Callable
 CallPerturbed = Callable[[str], Awaitable[str]]
 OnTick = Callable[[int, int], None]
 
+COMPONENT_LABELS = [
+    "persona",
+    "constraint",
+    "guardrail",
+    "formatting",
+    "example",
+    "context",
+    "instruction",
+    "dead_weight",
+]
+
 
 @dataclass
 class SaliencyResult:
@@ -21,6 +32,8 @@ class SaliencyResult:
     model: str
     api_calls: int
     stats: dict[str, object] = field(default_factory=dict)
+    component_labels: list[str] = field(default_factory=list)
+    section_scores: list[tuple[str, float]] = field(default_factory=list)
 
 
 class SaliencyMethod(ABC):

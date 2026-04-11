@@ -1,12 +1,14 @@
 """Orchestrates the full saliency analysis pipeline.
 
 Tokenize -> baseline -> run saliency method -> normalize -> return result.
+Optionally classifies each phrase and/or uses embedding-based divergence.
 """
 
 from __future__ import annotations
 
-from typing import Callable
+from typing import Awaitable, Callable
 
+from src.classifier import ClassifyFn, classify_phrases
 from src.methods.base import SaliencyMethod, SaliencyResult, OnTick
 from src.providers import PROVIDER_CONFIGS, Provider, call_llm
 from src.tokenizer import tokenize_phrases
@@ -31,6 +33,8 @@ async def analyze(
     analyze_as_system: bool = False,
     on_status: Callable[[str], None] | None = None,
     on_tick: OnTick | None = None,
+    classify: bool = False,
+    classify_fn: ClassifyFn | None = None,
 ) -> SaliencyResult:
     """Run a full saliency analysis and return the result."""
 
@@ -70,10 +74,13 @@ async def analyze(
     _status("Normalizing scores...")
     norm_scores = normalize(raw_scores)
 
+    component_labels: list[str] = []
+    if classify and classify_fn:
+        _status("Classifying phrase components...")
+        component_labels = await classify_phrases(phrases, classify_fn)
+
     resolved_model = model or PROVIDER_CONFIGS[provider].model
-    api_calls = 1 + len(phrases)
-    if method.name == "paraphrase":
-        api_calls += len(phrases)
+    api_calls = _estimate_api_calls(method, len(phrases))
 
     low_count = sum(1 for s in norm_scores if s < 0.25)
     top_idx = norm_scores.index(max(norm_scores))
@@ -87,6 +94,7 @@ async def analyze(
         provider=provider.value,
         model=resolved_model,
         api_calls=api_calls,
+        component_labels=component_labels,
         stats={
             "phrase_count": len(phrases),
             "top_phrase": phrases[top_idx].strip(),
@@ -94,3 +102,17 @@ async def analyze(
             "dead_weight_pct": round((low_count / len(phrases)) * 100) if phrases else 0,
         },
     )
+
+
+def _estimate_api_calls(method: SaliencyMethod, phrase_count: int) -> int:
+    """Rough API call estimate by method type."""
+    baseline = 1
+    match method.name:
+        case "perturbation" | "omission":
+            return baseline + phrase_count
+        case "paraphrase" | "counterfactual":
+            return baseline + phrase_count * 2
+        case "hierarchical":
+            return baseline + phrase_count + 10
+        case _:
+            return baseline + phrase_count

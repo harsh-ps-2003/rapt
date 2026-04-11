@@ -12,5 +12,5 @@ build/
 *.log
 .cursor/
 .github/
-
+AGENTS.md
 /tasks

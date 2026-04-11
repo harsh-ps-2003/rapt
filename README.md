@@ -2,7 +2,9 @@
 
 Colour-coded prompt saliency debugger for AI engineers.
 
-Paste your agent prompt, system instructions, or `SKILL.md` — rapt runs perturbation-based saliency analysis and shows you exactly which phrases drive your model's output and which are dead weight.
+Paste your agent prompt, system instructions, or `SKILL.md` — rapt runs saliency analysis and shows you exactly which phrases drive your model's output, which are dead weight, and what role each phrase plays.
+
+Supports perturbation, omission, paraphrase, hierarchical ablation, and counterfactual analysis with optional component classification and embedding-based semantic similarity.
 
 ## Quick Start
 
@@ -23,6 +25,18 @@ uv run rapt system_prompt.md -p openai
 # Analyze a system prompt with a fixed user message
 uv run rapt agent_rules.md -p anthropic --system -c "Write a haiku about rust"
 
+# Hierarchical ablation — cheap section-level first, drill into hot sections
+uv run rapt SKILL.md -p openai -m hierarchical
+
+# Counterfactual — find silent guardrails via negation
+uv run rapt rules.md -p openai -m counterfactual --cf-mode negate
+
+# Classify each phrase by role (persona, constraint, guardrail, etc.)
+uv run rapt prompt.md -p openai --classify -v
+
+# Use embedding-based semantic similarity instead of trigrams
+uv run rapt prompt.md -p openai --similarity embedding
+
 # Pipe from stdin
 cat skills.md | uv run rapt - -p google
 
@@ -37,18 +51,57 @@ uv run rapt prompt.md -p openai --json
 
 1. **Tokenize** — split the prompt into phrases at sentence/clause boundaries (markdown-aware: respects headers, lists, code fences)
 2. **Baseline** — get the model's full response to the unmodified prompt
-3. **Perturb** — for each phrase, replace/remove/paraphrase it and re-run the model
-4. **Measure** — compute divergence between the perturbed output and the baseline (character-trigram cosine similarity)
+3. **Perturb** — for each phrase, replace/remove/paraphrase/negate it and re-run the model
+4. **Measure** — compute divergence between the perturbed output and the baseline (trigram cosine or embedding-based semantic similarity)
 5. **Normalize** — min-max scale scores to [0, 1]
-6. **Render** — colour-code each phrase from blue (low impact) through amber to red (high impact)
+6. **Classify** *(optional)* — tag each phrase by structural role (persona, constraint, guardrail, formatting, example, context, instruction, dead_weight)
+7. **Render** — colour-code each phrase from blue (low impact) through amber to red (high impact), with role labels
 
 ## Saliency Methods
 
-| Method | Flag | How it works | Cost |
+| Method | Flag | How it works | Cost | Best for |
+|---|---|---|---|---|
+| **Perturbation** | `-m perturbation` | Replace phrase with `[...]` | N+1 calls | General-purpose |
+| **Omission** | `-m omission` | Remove phrase entirely | N+1 calls | Dead weight detection |
+| **Paraphrase** | `-m paraphrase` | LLM rewrites phrase to be vague | 2N+1 calls | Specificity testing |
+| **Hierarchical** | `-m hierarchical` | Section-level first, drill into hot sections | ~S+H calls | Long agent prompts |
+| **Counterfactual** | `-m counterfactual` | Negate/intensify/relax phrases | 2N+1 calls | Finding silent guardrails |
+
+### Counterfactual modes
+
+| Mode | Flag | What it does |
+|---|---|---|
+| **Negate** | `--cf-mode negate` | Flips meaning ("always" → "never"). Finds silent guardrails. |
+| **Intensify** | `--cf-mode intensify` | Makes extreme ("be concise" → "max 10 words"). Finds soft constraints. |
+| **Relax** | `--cf-mode relax` | Makes optional ("must" → "could optionally"). Finds hard requirements. |
+
+### Hierarchical ablation
+
+For a 200-phrase `SKILL.md` with 10 sections, hierarchical ablation runs ~10 section-level calls first, identifies which sections score above the threshold (default `0.4`), then drills into only those sections at phrase granularity. Customize with `--section-threshold 0.3`.
+
+## Component Classification
+
+Add `--classify` to any method to tag each phrase by structural role:
+
+| Label | What it means |
+|---|---|
+| `persona` | Agent identity, voice, role definition |
+| `constraint` | Scope limits, behavioral boundaries |
+| `guardrail` | Safety rules, things to never do |
+| `formatting` | Output format requirements (JSON, markdown) |
+| `example` | Demonstrations, few-shot examples |
+| `context` | Background info, definitions, domain knowledge |
+| `instruction` | Direct task directives, workflow steps |
+| `dead_weight` | Filler, redundant, meaningless |
+
+## Similarity Metrics
+
+| Metric | Flag | How it works | Cost |
 |---|---|---|---|
-| **Perturbation** | `-m perturbation` | Replace phrase with `[...]` | N+1 calls |
-| **Omission** | `-m omission` | Remove phrase entirely | N+1 calls |
-| **Paraphrase** | `-m paraphrase` | LLM rewrites phrase to be vague | 2N+1 calls |
+| **Trigram** | `--similarity trigram` | Character 3-gram cosine similarity | Free (default) |
+| **Embedding** | `--similarity embedding` | OpenAI `text-embedding-3-small` cosine | 1 embedding call per comparison |
+
+Embedding-based similarity catches semantic equivalence that trigrams miss (e.g. the model saying the same thing with different words).
 
 ## Providers
 
@@ -64,10 +117,13 @@ Override the model with `--model gpt-4o` or any model the provider supports.
 
 ```
 usage: rapt [-h] -p {openai,anthropic,google}
-            [-m {perturbation,omission,paraphrase}]
+            [-m {perturbation,omission,paraphrase,hierarchical,counterfactual}]
             [-c CONTEXT] [--context-file FILE]
             [--model MODEL] [--api-key KEY]
             [--max-tokens N] [--system] [--json] [-v]
+            [--cf-mode {negate,intensify,relax}]
+            [--classify] [--similarity {trigram,embedding}]
+            [--section-threshold FLOAT]
             FILE
 
 positional arguments:
@@ -84,6 +140,10 @@ options:
   --system              Treat input as system prompt
   --json                Output JSON instead of coloured terminal
   -v, --verbose         Show per-phrase score table
+  --cf-mode             Counterfactual mode: negate, intensify, relax (default: negate)
+  --classify            Tag each phrase by structural role
+  --similarity          Divergence metric: trigram or embedding (default: trigram)
+  --section-threshold   Hierarchical drill-down threshold (default: 0.4)
 ```
 
 ## Project Structure
@@ -93,7 +153,8 @@ src/
   cli.py              — argparse entry point
   providers.py         — unified LLM interface (OpenAI, Anthropic, Google)
   tokenizer.py         — markdown-aware phrase tokenization
-  similarity.py        — divergence metrics (trigram cosine)
+  similarity.py        — divergence metrics (trigram cosine + embedding)
+  classifier.py        — LLM-based phrase component classification
   analyzer.py          — analysis orchestration
   renderer.py          — Rich colour-coded terminal output
   methods/
@@ -101,19 +162,17 @@ src/
     perturbation.py    — replace with [...]
     omission.py        — leave-one-out
     paraphrase.py      — LLM rewrite to vague
-    shapley.py         — Monte Carlo Shapley (Phase 2)
-    hierarchical.py    — section-level ablation (Phase 2)
-    counterfactual.py  — negate/intensify/relax (Phase 2)
+    hierarchical.py    — section-level ablation, drill into hot sections
+    counterfactual.py  — negate/intensify/relax phrases
 ```
 
-## Roadmap (Phase 2)
+## Roadmap
 
-- **Shapley values** — fair contribution via Monte Carlo sampling, captures interaction effects
-- **Hierarchical ablation** — section-level first, then drill into high-impact sections
-- **Counterfactual analysis** — negate/intensify/relax phrases for richer signal
-- **Embedding-based similarity** — semantic divergence via provider embeddings
-- **Logprob divergence** — KL divergence on token distributions (OpenAI)
 - **Pairwise interactions** — detect synergistic/conflicting phrase pairs
+- **Logprob divergence** — KL divergence on token distributions (OpenAI)
+- **Batch analysis** — analyze multiple prompts and compare saliency profiles
+- **Diff mode** — compare saliency before/after a prompt edit
+- **Export** — HTML report with interactive hover for scores
 
 ## Research & Related Work
 
