@@ -45,6 +45,8 @@ async def embedding_cosine_similarity(
 
     Batches both texts in a single API call.  Returns [0.0, 1.0].
     """
+    from src.providers import LLMError
+
     async with httpx.AsyncClient(timeout=30.0) as client:
         resp = await client.post(
             "https://api.openai.com/v1/embeddings",
@@ -54,7 +56,8 @@ async def embedding_cosine_similarity(
             },
             json={"model": model, "input": [a, b]},
         )
-        resp.raise_for_status()
+        if not resp.is_success:
+            raise LLMError(resp.status_code, "OpenAI Embeddings")
         data = resp.json()["data"]
         vec_a = data[0]["embedding"]
         vec_b = data[1]["embedding"]

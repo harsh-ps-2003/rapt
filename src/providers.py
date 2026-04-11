@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
+import asyncio
 import os
+import re
 from dataclasses import dataclass
 from enum import Enum
+
 import httpx
 
 
@@ -43,6 +46,32 @@ PROVIDER_CONFIGS: dict[Provider, ProviderConfig] = {
     ),
 }
 
+MAX_RETRIES = 5
+INITIAL_BACKOFF = 2.0
+
+_KEY_PATTERNS = re.compile(
+    r"(key=)[^\s&'\"]+|(Bearer )[^\s'\"]+|(x-api-key[\"']?:\s*[\"']?)[^\s'\"]+",
+    re.IGNORECASE,
+)
+
+
+def _redact(text: str) -> str:
+    """Strip all API keys / bearer tokens / header values from a string."""
+    return _KEY_PATTERNS.sub(r"\1\2\3<REDACTED>", text)
+
+
+class LLMError(RuntimeError):
+    """Raised on LLM API failures. Messages are always key-free."""
+
+    def __init__(self, status: int, provider: str, detail: str = "") -> None:
+        self.status = status
+        self.provider = provider
+        safe_detail = _redact(detail) if detail else ""
+        super().__init__(
+            f"{provider} API returned {status}"
+            + (f": {safe_detail}" if safe_detail else "")
+        )
+
 
 def resolve_provider(name: str) -> Provider:
     try:
@@ -64,6 +93,17 @@ def resolve_api_key(provider: Provider, cli_key: str | None = None) -> str:
     return key
 
 
+def _safe_raise(resp: httpx.Response, provider_name: str) -> None:
+    """Check response status and raise LLMError (never leaks keys)."""
+    if resp.is_success:
+        return
+    try:
+        detail = resp.json().get("error", {}).get("message", resp.text[:200])
+    except Exception:
+        detail = resp.text[:200] if resp.text else ""
+    raise LLMError(resp.status_code, provider_name, str(detail))
+
+
 async def call_llm(
     provider: Provider,
     api_key: str,
@@ -73,17 +113,34 @@ async def call_llm(
     temperature: float = 0.0,
     model_override: str | None = None,
 ) -> str:
-    """Send a chat completion request and return the assistant's text."""
+    """Send a chat completion request and return the assistant's text.
+
+    Retries with exponential backoff on 429 / 529 / 5xx errors.
+    """
     cfg = PROVIDER_CONFIGS[provider]
     model = model_override or cfg.model
 
     match provider:
         case Provider.OPENAI:
-            return await _call_openai(cfg, api_key, model, user_msg, system_msg, max_tokens, temperature)
+            fn = _call_openai
         case Provider.ANTHROPIC:
-            return await _call_anthropic(cfg, api_key, model, user_msg, system_msg, max_tokens, temperature)
+            fn = _call_anthropic
         case Provider.GOOGLE:
-            return await _call_google(cfg, api_key, model, user_msg, system_msg, max_tokens, temperature)
+            fn = _call_google
+
+    last_err: LLMError | None = None
+    for attempt in range(MAX_RETRIES):
+        try:
+            return await fn(cfg, api_key, model, user_msg, system_msg, max_tokens, temperature)
+        except LLMError as e:
+            last_err = e
+            if e.status in (429, 529) or e.status >= 500:
+                wait = INITIAL_BACKOFF * (2 ** attempt)
+                await asyncio.sleep(wait)
+                continue
+            raise
+
+    raise last_err if last_err else RuntimeError("LLM call failed after retries")
 
 
 async def _call_openai(
@@ -114,7 +171,7 @@ async def _call_openai(
                 "temperature": temperature,
             },
         )
-        resp.raise_for_status()
+        _safe_raise(resp, cfg.name)
         data = resp.json()
         return data["choices"][0]["message"]["content"]
 
@@ -147,7 +204,7 @@ async def _call_anthropic(
             },
             json=body,
         )
-        resp.raise_for_status()
+        _safe_raise(resp, cfg.name)
         data = resp.json()
         return data["content"][0]["text"]
 
@@ -161,7 +218,7 @@ async def _call_google(
     max_tokens: int,
     temperature: float,
 ) -> str:
-    url = f"{cfg.endpoint}/{model}:generateContent?key={api_key}"
+    url = f"{cfg.endpoint}/{model}:generateContent"
 
     contents: list[dict] = []
     if system_msg:
@@ -172,6 +229,7 @@ async def _call_google(
     async with httpx.AsyncClient(timeout=60.0) as client:
         resp = await client.post(
             url,
+            params={"key": api_key},
             headers={"Content-Type": "application/json"},
             json={
                 "contents": contents,
@@ -181,6 +239,6 @@ async def _call_google(
                 },
             },
         )
-        resp.raise_for_status()
+        _safe_raise(resp, cfg.name)
         data = resp.json()
         return data["candidates"][0]["content"]["parts"][0]["text"]

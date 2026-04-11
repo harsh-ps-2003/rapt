@@ -249,6 +249,10 @@ def main() -> None:
     except KeyboardInterrupt:
         console.print("\n[dim]Interrupted.[/dim]")
         sys.exit(130)
+    except Exception as e:
+        from src.providers import _redact
+        console.print(f"[red]Error:[/] {_redact(str(e))}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
