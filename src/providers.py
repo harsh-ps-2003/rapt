@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import os
 import re
+import time
 from dataclasses import dataclass
 from enum import Enum
 
@@ -46,8 +47,9 @@ PROVIDER_CONFIGS: dict[Provider, ProviderConfig] = {
     ),
 }
 
-MAX_RETRIES = 5
-INITIAL_BACKOFF = 2.0
+MAX_RETRIES = 3
+INITIAL_BACKOFF = 1.0
+TOTAL_TIMEOUT = 30.0
 
 _KEY_PATTERNS = re.compile(
     r"(key=)[^\s&'\"]+|(Bearer )[^\s'\"]+|(x-api-key[\"']?:\s*[\"']?)[^\s'\"]+",
@@ -115,7 +117,8 @@ async def call_llm(
 ) -> str:
     """Send a chat completion request and return the assistant's text.
 
-    Retries with exponential backoff on 429 / 529 / 5xx errors.
+    Retries with exponential backoff on 429 / 5xx.
+    Gives up after MAX_RETRIES or TOTAL_TIMEOUT seconds, whichever comes first.
     """
     cfg = PROVIDER_CONFIGS[provider]
     model = model_override or cfg.model
@@ -128,18 +131,29 @@ async def call_llm(
         case Provider.GOOGLE:
             fn = _call_google
 
+    start = time.monotonic()
     last_err: LLMError | None = None
+
     for attempt in range(MAX_RETRIES):
         try:
             return await fn(cfg, api_key, model, user_msg, system_msg, max_tokens, temperature)
         except LLMError as e:
             last_err = e
             if e.status in (429, 529) or e.status >= 500:
+                elapsed = time.monotonic() - start
                 wait = INITIAL_BACKOFF * (2 ** attempt)
+                if elapsed + wait > TOTAL_TIMEOUT:
+                    break
                 await asyncio.sleep(wait)
                 continue
             raise
 
+    if last_err and last_err.status == 429:
+        raise LLMError(
+            429,
+            cfg.name,
+            "Rate limited — retries exhausted. Use a paid API key or try a different provider.",
+        )
     raise last_err if last_err else RuntimeError("LLM call failed after retries")
 
 
