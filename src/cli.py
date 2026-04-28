@@ -140,11 +140,11 @@ def _load_file(path: str) -> str:
         sys.exit(1)
 
 
-def _make_llm_fn(provider: Provider, api_key: str, model: str | None):
+def _make_llm_fn(provider: Provider, api_key: str, model: str | None, max_tokens: int = 100):
     """Build a reusable async LLM call function for method internals."""
     async def _fn(text: str) -> str:
         return await call_llm(
-            provider, api_key, text, "", max_tokens=100, model_override=model,
+            provider, api_key, text, "", max_tokens=max_tokens, model_override=model,
         )
     return _fn
 
@@ -170,6 +170,8 @@ async def _run(args: argparse.Namespace) -> None:
         _patch_similarity_to_embedding(api_key)
 
     llm_fn = _make_llm_fn(provider, api_key, args.model)
+    # Classifier needs to return a full JSON array (up to 60 items) — give it more room.
+    classify_fn = _make_llm_fn(provider, api_key, args.model, max_tokens=1024) if args.classify else None
 
     method_cls = METHODS[args.method]
     match args.method:
@@ -182,8 +184,6 @@ async def _run(args: argparse.Namespace) -> None:
             method = HierarchicalAblation(section_threshold=args.section_threshold)
         case _:
             method = method_cls()
-
-    classify_fn = llm_fn if args.classify else None
 
     progress = create_progress()
 

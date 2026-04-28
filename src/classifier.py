@@ -94,7 +94,7 @@ async def classify_phrases(
             batch_labels = _parse_classification(raw, len(phrases))
             for i, label in enumerate(batch_labels):
                 global_idx = batch_start + i
-                if label != "context" or labels[global_idx] == "context":
+                if label != "context" and labels[global_idx] == "context":
                     labels[global_idx] = label
         except Exception:
             pass
