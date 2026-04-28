@@ -41,7 +41,7 @@ PROVIDER_CONFIGS: dict[Provider, ProviderConfig] = {
     ),
     Provider.GOOGLE: ProviderConfig(
         name="Google AI Studio",
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         env_key="GOOGLE_API_KEY",
         endpoint="https://generativelanguage.googleapis.com/v1beta/models",
     ),

@@ -109,7 +109,7 @@ Embedding-based similarity catches semantic equivalence that trigrams miss (e.g.
 |---|---|---|---|
 | OpenAI | `-p openai` | `gpt-4o-mini` | `OPENAI_API_KEY` |
 | Anthropic | `-p anthropic` | `claude-sonnet-4-20250514` | `ANTHROPIC_API_KEY` |
-| Google | `-p google` | `gemini-2.0-flash` | `GOOGLE_API_KEY` |
+| Google | `-p google` | `gemini-2.5-flash` | `GOOGLE_API_KEY` |
 
 Override the model with `--model gpt-4o` or any model the provider supports.
 
