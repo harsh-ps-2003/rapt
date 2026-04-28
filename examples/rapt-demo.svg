@@ -1,0 +1,344 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="2328" viewBox="0 0 900 2328">
+  <rect width="900" height="2328" rx="8" fill="#0d1117"/>
+  <!-- top bar -->
+  <rect width="900" height="32" rx="8" fill="#161b22"/>
+  <rect y="24" width="900" height="8" fill="#161b22"/>
+  <circle cx="20" cy="16" r="6" fill="#f85149"/>
+  <circle cx="40" cy="16" r="6" fill="#d29922"/>
+  <circle cx="60" cy="16" r="6" fill="#3fb950"/>
+  <text x="450" y="20" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="11" text-anchor="middle">rapt — prompt saliency</text>
+  <text x="20" y="44" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">$ uv run rapt examples/customer_support_agent.md -p google --system \</text>
+  <text x="20" y="64" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">      -c &quot;My GitHub integration stopped syncing after I updated Luma.&quot; -v</text>
+  <text x="20" y="104" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600">  rapt  |  google/gemini-2.5-flash  |  perturbation  |  76 phrases</text>
+  <text x="20" y="144" fill="#21262d" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">──────────────────────────────────────────────────────────────────────────────────</text>
+  <text x="20" y="184" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600">     #   Score   Bar                     Phrase</text>
+  <text x="20" y="204" fill="#21262d" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">──────────────────────────────────────────────────────────────────────────────────</text>
+  <text x="20" y="224" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">   1</text>
+<text x="56.1" y="224" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 56%</text>
+<text x="106.6" y="224" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███████████░░░░░░░░░</text>
+<text x="272.7" y="224" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12"># Customer Support Agent</text>
+  <text x="20" y="244" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">   2</text>
+<text x="56.1" y="244" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 27%</text>
+<text x="106.6" y="244" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="244" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">You are Aria, a senior customer support specialist a…</text>
+  <text x="20" y="264" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">   3</text>
+<text x="56.1" y="264" fill="#f85149" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 92%</text>
+<text x="106.6" y="264" fill="#f85149" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██████████████████░░</text>
+<text x="272.7" y="264" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">a cloud-based project management platform used by so…</text>
+  <text x="20" y="284" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">   4</text>
+<text x="56.1" y="284" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 61%</text>
+<text x="106.6" y="284" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="284" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">## Persona</text>
+  <text x="20" y="304" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">   5</text>
+<text x="56.1" y="304" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 26%</text>
+<text x="106.6" y="304" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="304" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">Your name is Aria.</text>
+  <text x="20" y="324" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">   6</text>
+<text x="56.1" y="324" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 58%</text>
+<text x="106.6" y="324" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="324" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">You are empathetic, concise, and technically fluent.</text>
+  <text x="20" y="344" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">   7</text>
+<text x="56.1" y="344" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 62%</text>
+<text x="106.6" y="344" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="344" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">You speak in a warm but professional tone.</text>
+  <text x="20" y="364" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">   8</text>
+<text x="56.1" y="364" fill="#f85149" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600">100%</text>
+<text x="106.6" y="364" fill="#f85149" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████████████</text>
+<text x="272.7" y="364" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">Avoid jargon unless the user is clearly a developer.</text>
+  <text x="20" y="384" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">   9</text>
+<text x="56.1" y="384" fill="#f85149" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 92%</text>
+<text x="106.6" y="384" fill="#f85149" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██████████████████░░</text>
+<text x="272.7" y="384" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">Never be sarcastic or dismissive, even when a user i…</text>
+  <text x="20" y="404" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  10</text>
+<text x="56.1" y="404" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 62%</text>
+<text x="106.6" y="404" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="404" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">## Your Mission</text>
+  <text x="20" y="424" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  11</text>
+<text x="56.1" y="424" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 32%</text>
+<text x="106.6" y="424" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██████░░░░░░░░░░░░░░</text>
+<text x="272.7" y="424" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">Help users resolve issues with Luma quickly and comp…</text>
+  <text x="20" y="444" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  12</text>
+<text x="56.1" y="444" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 35%</text>
+<text x="106.6" y="444" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███████░░░░░░░░░░░░░</text>
+<text x="272.7" y="444" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">A resolved issue means the user has what they need t…</text>
+  <text x="20" y="464" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  13</text>
+<text x="56.1" y="464" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600">  6%</text>
+<text x="106.6" y="464" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█░░░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="464" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">## Scope</text>
+  <text x="20" y="484" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  14</text>
+<text x="56.1" y="484" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 17%</text>
+<text x="106.6" y="484" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="484" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">You handle:</text>
+  <text x="20" y="504" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  15</text>
+<text x="56.1" y="504" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 66%</text>
+<text x="106.6" y="504" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████████████░░░░░░░</text>
+<text x="272.7" y="504" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Billing questions and subscription changes</text>
+  <text x="20" y="524" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  16</text>
+<text x="56.1" y="524" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 29%</text>
+<text x="106.6" y="524" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██████░░░░░░░░░░░░░░</text>
+<text x="272.7" y="524" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Bug reports and unexpected behavior</text>
+  <text x="20" y="544" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  17</text>
+<text x="56.1" y="544" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 64%</text>
+<text x="106.6" y="544" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████████████░░░░░░░</text>
+<text x="272.7" y="544" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Onboarding and feature walkthroughs</text>
+  <text x="20" y="564" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  18</text>
+<text x="56.1" y="564" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 60%</text>
+<text x="106.6" y="564" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="564" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Integration questions (GitHub, Slack, Jira, Figma)</text>
+  <text x="20" y="584" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  19</text>
+<text x="56.1" y="584" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 57%</text>
+<text x="106.6" y="584" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███████████░░░░░░░░░</text>
+<text x="272.7" y="584" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Account access, permissions, and SSO configuration</text>
+  <text x="20" y="604" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  20</text>
+<text x="56.1" y="604" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 21%</text>
+<text x="106.6" y="604" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="604" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">You do not handle:</text>
+  <text x="20" y="624" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  21</text>
+<text x="56.1" y="624" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 17%</text>
+<text x="106.6" y="624" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="624" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Feature requests (direct to feedback.</text>
+  <text x="20" y="644" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  22</text>
+<text x="56.1" y="644" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600">  6%</text>
+<text x="106.6" y="644" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█░░░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="644" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">luma.</text>
+  <text x="20" y="664" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  23</text>
+<text x="56.1" y="664" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 61%</text>
+<text x="106.6" y="664" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="664" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">io)</text>
+  <text x="20" y="684" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  24</text>
+<text x="56.1" y="684" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 26%</text>
+<text x="106.6" y="684" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="684" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Legal or compliance questions (escalate to legal@l…</text>
+  <text x="20" y="704" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  25</text>
+<text x="56.1" y="704" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 13%</text>
+<text x="106.6" y="704" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="704" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">io)</text>
+  <text x="20" y="724" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  26</text>
+<text x="56.1" y="724" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 24%</text>
+<text x="106.6" y="724" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="724" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Refund decisions over $500 (escalate to billing@lu…</text>
+  <text x="20" y="744" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  27</text>
+<text x="56.1" y="744" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 13%</text>
+<text x="106.6" y="744" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="744" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">io with full context)</text>
+  <text x="20" y="764" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  28</text>
+<text x="56.1" y="764" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 63%</text>
+<text x="106.6" y="764" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████████████░░░░░░░</text>
+<text x="272.7" y="764" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">## Response Format</text>
+  <text x="20" y="784" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  29</text>
+<text x="56.1" y="784" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 24%</text>
+<text x="106.6" y="784" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="784" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">Always structure your response as follows:</text>
+  <text x="20" y="804" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  30</text>
+<text x="56.1" y="804" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600">  0%</text>
+<text x="106.6" y="804" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">░░░░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="804" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">1.</text>
+  <text x="20" y="824" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  31</text>
+<text x="56.1" y="824" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 27%</text>
+<text x="106.6" y="824" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="824" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">**Acknowledge** — one sentence confirming you unders…</text>
+  <text x="20" y="844" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  32</text>
+<text x="56.1" y="844" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 56%</text>
+<text x="106.6" y="844" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███████████░░░░░░░░░</text>
+<text x="272.7" y="844" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">2.</text>
+  <text x="20" y="864" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  33</text>
+<text x="56.1" y="864" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 23%</text>
+<text x="106.6" y="864" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="864" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">**Resolve** — the clearest possible fix or answer.</text>
+  <text x="20" y="884" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  34</text>
+<text x="56.1" y="884" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 32%</text>
+<text x="106.6" y="884" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██████░░░░░░░░░░░░░░</text>
+<text x="272.7" y="884" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">3.</text>
+  <text x="20" y="904" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  35</text>
+<text x="56.1" y="904" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 16%</text>
+<text x="106.6" y="904" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="904" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">**Verify** — ask if this solved their problem or if …</text>
+  <text x="20" y="924" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  36</text>
+<text x="56.1" y="924" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 23%</text>
+<text x="106.6" y="924" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="924" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">Keep responses under 200 words unless a step-by-step…</text>
+  <text x="20" y="944" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  37</text>
+<text x="56.1" y="944" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 20%</text>
+<text x="106.6" y="944" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="944" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">## Guardrails</text>
+  <text x="20" y="964" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  38</text>
+<text x="56.1" y="964" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 22%</text>
+<text x="106.6" y="964" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="964" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Never fabricate product features,</text>
+  <text x="20" y="984" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  39</text>
+<text x="56.1" y="984" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 18%</text>
+<text x="106.6" y="984" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="984" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">pricing tiers, or integration capabilities that are …</text>
+  <text x="20" y="1004" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  40</text>
+<text x="56.1" y="1004" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 23%</text>
+<text x="106.6" y="1004" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1004" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Never share another customer's data,</text>
+  <text x="20" y="1024" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  41</text>
+<text x="56.1" y="1024" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 62%</text>
+<text x="106.6" y="1024" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="1024" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">account details, or usage information.</text>
+  <text x="20" y="1044" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  42</text>
+<text x="56.1" y="1044" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 21%</text>
+<text x="106.6" y="1044" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1044" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Never promise a bug will be fixed by a specific da…</text>
+  <text x="20" y="1064" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  43</text>
+<text x="56.1" y="1064" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 19%</text>
+<text x="106.6" y="1064" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1064" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- If you are uncertain, say so clearly and offer to …</text>
+  <text x="20" y="1084" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  44</text>
+<text x="56.1" y="1084" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 30%</text>
+<text x="106.6" y="1084" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██████░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1084" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- Do not discuss competitors by name.</text>
+  <text x="20" y="1104" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  45</text>
+<text x="56.1" y="1104" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 11%</text>
+<text x="106.6" y="1104" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██░░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1104" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">If asked to compare, focus on Luma's strengths.</text>
+  <text x="20" y="1124" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  46</text>
+<text x="56.1" y="1124" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 34%</text>
+<text x="106.6" y="1124" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███████░░░░░░░░░░░░░</text>
+<text x="272.7" y="1124" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">## Tone Examples</text>
+  <text x="20" y="1144" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  47</text>
+<text x="56.1" y="1144" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 40%</text>
+<text x="106.6" y="1144" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████░░░░░░░░░░░░</text>
+<text x="272.7" y="1144" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">**Good:** &quot;That's frustrating — let me help you fix …</text>
+  <text x="20" y="1164" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  48</text>
+<text x="56.1" y="1164" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 29%</text>
+<text x="106.6" y="1164" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██████░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1164" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">&quot;</text>
+  <text x="20" y="1184" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  49</text>
+<text x="56.1" y="1184" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 60%</text>
+<text x="106.6" y="1184" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="1184" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">**Bad:** &quot;Unfortunately, this is a known limitation …</text>
+  <text x="20" y="1204" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  50</text>
+<text x="56.1" y="1204" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 15%</text>
+<text x="106.6" y="1204" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1204" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">&quot;</text>
+  <text x="20" y="1224" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  51</text>
+<text x="56.1" y="1224" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 62%</text>
+<text x="106.6" y="1224" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="1224" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">**Good:** &quot;Here are the exact steps to reconnect you…</text>
+  <text x="20" y="1244" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  52</text>
+<text x="56.1" y="1244" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 15%</text>
+<text x="106.6" y="1244" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1244" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">&quot;</text>
+  <text x="20" y="1264" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  53</text>
+<text x="56.1" y="1264" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 62%</text>
+<text x="106.6" y="1264" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="1264" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">**Bad:** &quot;Have you tried checking the documentation?</text>
+  <text x="20" y="1284" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  54</text>
+<text x="56.1" y="1284" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 33%</text>
+<text x="106.6" y="1284" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███████░░░░░░░░░░░░░</text>
+<text x="272.7" y="1284" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">&quot;</text>
+  <text x="20" y="1304" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  55</text>
+<text x="56.1" y="1304" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 65%</text>
+<text x="106.6" y="1304" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████████████░░░░░░░</text>
+<text x="272.7" y="1304" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">## Escalation Protocol</text>
+  <text x="20" y="1324" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  56</text>
+<text x="56.1" y="1324" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 19%</text>
+<text x="106.6" y="1324" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1324" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">Escalate to a human agent when:</text>
+  <text x="20" y="1344" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  57</text>
+<text x="56.1" y="1344" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 13%</text>
+<text x="106.6" y="1344" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1344" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- The user has been waiting more than 48 hours for a…</text>
+  <text x="20" y="1364" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  58</text>
+<text x="56.1" y="1364" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 15%</text>
+<text x="106.6" y="1364" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1364" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- The issue involves data loss or a security concern…</text>
+  <text x="20" y="1384" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  59</text>
+<text x="56.1" y="1384" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 61%</text>
+<text x="106.6" y="1384" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="1384" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- The user explicitly asks to speak to a human.</text>
+  <text x="20" y="1404" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  60</text>
+<text x="56.1" y="1404" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 24%</text>
+<text x="106.6" y="1404" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1404" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">- You have attempted two resolutions and neither has…</text>
+  <text x="20" y="1424" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  61</text>
+<text x="56.1" y="1424" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 59%</text>
+<text x="106.6" y="1424" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="1424" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">To escalate, say: &quot;I'm going to loop in a specialist…</text>
+  <text x="20" y="1444" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  62</text>
+<text x="56.1" y="1444" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 22%</text>
+<text x="106.6" y="1444" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1444" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">Can I get your email and a one-line summary of the i…</text>
+  <text x="20" y="1464" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  63</text>
+<text x="56.1" y="1464" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 65%</text>
+<text x="106.6" y="1464" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████████████░░░░░░░</text>
+<text x="272.7" y="1464" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">&quot;</text>
+  <text x="20" y="1484" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  64</text>
+<text x="56.1" y="1484" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 10%</text>
+<text x="106.6" y="1484" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██░░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1484" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">## Context</text>
+  <text x="20" y="1504" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  65</text>
+<text x="56.1" y="1504" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600">  8%</text>
+<text x="106.6" y="1504" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██░░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1504" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">Luma's current version is 4.</text>
+  <text x="20" y="1524" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  66</text>
+<text x="56.1" y="1524" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 16%</text>
+<text x="106.6" y="1524" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1524" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">2.</text>
+  <text x="20" y="1544" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  67</text>
+<text x="56.1" y="1544" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 14%</text>
+<text x="106.6" y="1544" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1544" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">The GitHub and Slack integrations were updated in ve…</text>
+  <text x="20" y="1564" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  68</text>
+<text x="56.1" y="1564" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 12%</text>
+<text x="106.6" y="1564" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██░░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1564" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">1.</text>
+  <text x="20" y="1584" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  69</text>
+<text x="56.1" y="1584" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 43%</text>
+<text x="106.6" y="1584" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">█████████░░░░░░░░░░░</text>
+<text x="272.7" y="1584" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">The mobile app (iOS and Android) was released in ver…</text>
+  <text x="20" y="1604" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  70</text>
+<text x="56.1" y="1604" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 16%</text>
+<text x="106.6" y="1604" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1604" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">8.</text>
+  <text x="20" y="1624" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  71</text>
+<text x="56.1" y="1624" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 32%</text>
+<text x="106.6" y="1624" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██████░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1624" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">SSO via SAML 2.</text>
+  <text x="20" y="1644" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  72</text>
+<text x="56.1" y="1644" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 58%</text>
+<text x="106.6" y="1644" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="1644" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">0 is available on Business and Enterprise plans only…</text>
+  <text x="20" y="1664" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  73</text>
+<text x="56.1" y="1664" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 30%</text>
+<text x="106.6" y="1664" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">██████░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1664" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">## Important Note</text>
+  <text x="20" y="1684" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  74</text>
+<text x="56.1" y="1684" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 59%</text>
+<text x="106.6" y="1684" fill="#d29922" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████████████░░░░░░░░</text>
+<text x="272.7" y="1684" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">This is a support context.</text>
+  <text x="20" y="1704" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  75</text>
+<text x="56.1" y="1704" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 17%</text>
+<text x="106.6" y="1704" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">███░░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1704" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">Be helpful.</text>
+  <text x="20" y="1724" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  76</text>
+<text x="56.1" y="1724" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600"> 21%</text>
+<text x="106.6" y="1724" fill="#388bfd" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">████░░░░░░░░░░░░░░░░</text>
+<text x="272.7" y="1724" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">Responses should feel human.</text>
+  <text x="20" y="1744" fill="#21262d" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">──────────────────────────────────────────────────────────────────────────────────</text>
+  <text x="20" y="1784" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600">  Stats</text>
+  <text x="20" y="1824" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  Phrases        76</text>
+  <text x="20" y="1844" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  Top phrase     &quot;Avoid jargon unless the user is clearly a develo…&quot;  (100%)</text>
+  <text x="20" y="1864" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  Dead weight    46% of phrases below 25% impact</text>
+  <text x="20" y="1884" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  API calls      77 (1 baseline + 76 perturbations)</text>
+  <text x="20" y="1924" fill="#21262d" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">──────────────────────────────────────────────────────────────────────────────────</text>
+  <text x="20" y="1964" fill="#e6edf3" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12" font-weight="600">  Baseline Output</text>
+  <text x="20" y="2004" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  It sounds like your GitHub integration isn't syncing correctly after the Luma</text>
+  <text x="20" y="2024" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  update, and I can certainly help you get that back on track.</text>
+  <text x="20" y="2064" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  Often, after an update, integrations just need a quick refresh. Could you please</text>
+  <text x="20" y="2084" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  try navigating to your Project Settings, then selecting the Integrations tab, and</text>
+  <text x="20" y="2104" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  for the GitHub integration, click to Disconnect and then Reconnect? This usually</text>
+  <text x="20" y="2124" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  resolves syncing issues.</text>
+  <text x="20" y="2164" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  Please let me know if that gets your GitHub integration syncing again, or if you</text>
+  <text x="20" y="2184" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  need further assistance!</text>
+  <text x="20" y="2244" fill="#21262d" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">──────────────────────────────────────────────────────────────────────────────────</text>
+  <text x="20" y="2284" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">  Legend:  </text>
+  <rect x="106.6" y="2274" width="12" height="12" rx="2" fill="#388bfd"/>
+  <text x="122.6" y="2284" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">low impact</text>
+  <rect x="210.8" y="2274" width="12" height="12" rx="2" fill="#d29922"/>
+  <text x="226.8" y="2284" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">medium</text>
+  <rect x="286.2" y="2274" width="12" height="12" rx="2" fill="#f85149"/>
+  <text x="302.2" y="2284" fill="#8b949e" font-family="ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace" font-size="12">high impact</text>
+</svg>

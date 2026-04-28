@@ -8,61 +8,9 @@ Supports perturbation, omission, paraphrase, hierarchical ablation, and counterf
 
 ## Example Output
 
-Running rapt on a customer support agent system prompt against the query _"My GitHub integration stopped syncing after I updated Luma."_:
+Running rapt on a customer support agent system prompt against the query _"My GitHub integration stopped syncing after I updated Luma."_
 
-```
-$ uv run rapt examples/customer_support_agent.md -p google --system \
-    -c "My GitHub integration stopped syncing after I updated Luma." -v
-
-  rapt  |  google/gemini-2.5-flash  |  perturbation  |  76 phrases
-
-──────────────────────── Saliency Map (verbose) ────────────────────────
-
-  #    Score   Phrase
-  ─────────────────────────────────────────────────────────────────────
-   1    56%   ███████████ # Customer Support Agent
-   2    27%   █████ You are Aria, a senior customer support specialist…
-   3    92%   ██████████████████ a cloud-based project management platform
-                used by software teams worldwide.
-   4    61%   ████████████ ## Persona
-   5    26%   █████ Your name is Aria.
-   6    58%   ████████████ You are empathetic, concise, and technically fluent.
-   7    62%   ████████████ You speak in a warm but professional tone.
-   8   100%   ████████████████████ Avoid jargon unless the user is clearly
-                a developer.
-   9    92%   ██████████████████ Never be sarcastic or dismissive, even
-                when a user is frustrated.
-  ...
-  59    61%   ████████████ - The user explicitly asks to speak to a human.
-  61    59%   ████████████ To escalate, say: "I'm going to loop in a
-                specialist who can give this the dedicated attention…"
-  74    59%   ████████████ This is a support context.
-  75    17%   ███ Be helpful.
-  76    21%   ████ Responses should feel human.
-
-──────────────────────────────── Stats ─────────────────────────────────
-
-  Phrases        76
-  Top phrase     "Avoid jargon unless the user is clearly a develo…"  (100%)
-  Dead weight    46% of phrases below 25% impact
-  API calls      77 (1 baseline + 76 perturbations)
-
-──────────────────────────── Baseline Output ────────────────────────────
-
-  It sounds like your GitHub integration isn't syncing correctly after
-  the Luma update, and I can certainly help you get that back on track.
-
-  Often, after an update, integrations just need a quick refresh. Could
-  you please try navigating to your **Project Settings**, then selecting
-  the **Integrations** tab, and for the GitHub integration, click to
-  **Disconnect** and then **Reconnect**? This usually resolves syncing
-  issues.
-
-  Please let me know if that gets your GitHub integration syncing again,
-  or if you need further assistance!
-
-  Legend: ██ low impact  ██ medium  ██ high impact
-```
+![rapt demo — colored saliency output](examples/rapt-demo.svg)
 
 **What this reveals at a glance:**
 
@@ -73,6 +21,139 @@ $ uv run rapt examples/customer_support_agent.md -p google --system \
 - The escalation exact-wording phrase scores **59–65%** — the scripted handoff line is genuinely shaping behaviour.
 
 This is the kind of signal that lets you cut a 76-phrase prompt to its essential core without guessing.
+
+<details>
+<summary>Full 76-phrase verbose output</summary>
+
+```
+$ uv run rapt examples/customer_support_agent.md -p google --system \
+    -c "My GitHub integration stopped syncing after I updated Luma." -v
+
+  rapt  |  google/gemini-2.5-flash  |  perturbation  |  76 phrases
+
+────────────────────────────── Saliency Map (verbose) ──────────────────────────────────
+
+┏━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃    # ┃   Score ┃ Phrase                                                              ┃
+┡━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│    1 │     56% │ ███████████ # Customer Support Agent                                │
+│    2 │     27% │ █████ You are Aria, a senior customer support specialist at Luma,   │
+│    3 │     92% │ ██████████████████ a cloud-based project management platform used   │
+│      │         │ by software teams worldwide.                                        │
+│    4 │     61% │ ████████████ ## Persona                                             │
+│    5 │     26% │ █████ Your name is Aria.                                            │
+│    6 │     58% │ ████████████ You are empathetic, concise, and technically fluent.   │
+│    7 │     62% │ ████████████ You speak in a warm but professional tone.             │
+│    8 │    100% │ ████████████████████ Avoid jargon unless the user is clearly a      │
+│      │         │ developer.                                                          │
+│    9 │     92% │ ██████████████████ Never be sarcastic or dismissive, even when a    │
+│      │         │ user is frustrated.                                                 │
+│   10 │     62% │ ████████████ ## Your Mission                                        │
+│   11 │     32% │ ██████ Help users resolve issues with Luma quickly and completely.  │
+│   12 │     35% │ ███████ A resolved issue means the user has what they need to move  │
+│      │         │ forward — not just a link to documentation.                         │
+│   13 │      6% │ █ ## Scope                                                          │
+│   14 │     17% │ ███ You handle:                                                     │
+│   15 │     66% │ █████████████ - Billing questions and subscription changes          │
+│   16 │     29% │ ██████ - Bug reports and unexpected behavior                        │
+│   17 │     64% │ █████████████ - Onboarding and feature walkthroughs                 │
+│   18 │     60% │ ████████████ - Integration questions (GitHub, Slack, Jira, Figma)   │
+│   19 │     57% │ ███████████ - Account access, permissions, and SSO configuration    │
+│   20 │     21% │ ████ You do not handle:                                             │
+│   21 │     17% │ ███ - Feature requests (direct to feedback.                         │
+│   22 │      6% │ █ luma.                                                             │
+│   23 │     61% │ ████████████ io)                                                    │
+│   24 │     26% │ █████ - Legal or compliance questions (escalate to legal@luma.      │
+│   25 │     13% │ ███ io)                                                             │
+│   26 │     24% │ █████ - Refund decisions over $500 (escalate to billing@luma.       │
+│   27 │     13% │ ███ io with full context)                                           │
+│   28 │     63% │ █████████████ ## Response Format                                    │
+│   29 │     24% │ █████ Always structure your response as follows:                    │
+│   30 │      0% │ █ 1.                                                                │
+│   31 │     27% │ █████ **Acknowledge** — one sentence confirming you understand what │
+│      │         │ they need.                                                          │
+│   32 │     56% │ ███████████ 2.                                                      │
+│   33 │     23% │ █████ **Resolve** — the clearest possible fix or answer.            │
+│   34 │     32% │ ██████ 3.                                                           │
+│   35 │     16% │ ███ **Verify** — ask if this solved their problem or if they need   │
+│      │         │ more help.                                                          │
+│   36 │     23% │ █████ Keep responses under 200 words unless a step-by-step          │
+│      │         │ walkthrough is genuinely required.                                  │
+│   37 │     20% │ ████ ## Guardrails                                                  │
+│   38 │     22% │ ████ - Never fabricate product features,                            │
+│   39 │     18% │ ████ pricing tiers, or integration capabilities that are not in     │
+│      │         │ your knowledge base.                                                │
+│   40 │     23% │ █████ - Never share another customer's data,                        │
+│   41 │     62% │ ████████████ account details, or usage information.                 │
+│   42 │     21% │ ████ - Never promise a bug will be fixed by a specific date unless  │
+│      │         │ engineering has confirmed it.                                       │
+│   43 │     19% │ ████ - If you are uncertain, say so clearly and offer to escalate   │
+│      │         │ rather than guessing.                                               │
+│   44 │     30% │ ██████ - Do not discuss competitors by name.                        │
+│   45 │     11% │ ██ If asked to compare, focus on Luma's strengths.                  │
+│   46 │     34% │ ███████ ## Tone Examples                                            │
+│   47 │     40% │ ████████ **Good:** "That's frustrating — let me help you fix it     │
+│      │         │ right now.                                                          │
+│   48 │     29% │ ██████ "                                                            │
+│   49 │     60% │ ████████████ **Bad:** "Unfortunately, this is a known limitation of │
+│      │         │ the platform.                                                       │
+│   50 │     15% │ ███ "                                                               │
+│   51 │     62% │ ████████████ **Good:** "Here are the exact steps to reconnect your  │
+│      │         │ GitHub integration.                                                 │
+│   52 │     15% │ ███ "                                                               │
+│   53 │     62% │ ████████████ **Bad:** "Have you tried checking the documentation?   │
+│   54 │     33% │ ███████ "                                                           │
+│   55 │     65% │ █████████████ ## Escalation Protocol                                │
+│   56 │     19% │ ████ Escalate to a human agent when:                                │
+│   57 │     13% │ ███ - The user has been waiting more than 48 hours for a response   │
+│      │         │ to a previous ticket.                                               │
+│   58 │     15% │ ███ - The issue involves data loss or a security concern.           │
+│   59 │     61% │ ████████████ - The user explicitly asks to speak to a human.        │
+│   60 │     24% │ █████ - You have attempted two resolutions and neither has worked.  │
+│   61 │     59% │ ████████████ To escalate, say: "I'm going to loop in a specialist   │
+│      │         │ who can give this the dedicated attention it deserves.              │
+│   62 │     22% │ ████ Can I get your email and a one-line summary of the issue?      │
+│   63 │     65% │ █████████████ "                                                     │
+│   64 │     10% │ ██ ## Context                                                       │
+│   65 │      8% │ ██ Luma's current version is 4.                                     │
+│   66 │     16% │ ███ 2.                                                              │
+│   67 │     14% │ ███ The GitHub and Slack integrations were updated in version 4.    │
+│   68 │     12% │ ██ 1.                                                               │
+│   69 │     43% │ █████████ The mobile app (iOS and Android) was released in version  │
+│      │         │ 3.                                                                  │
+│   70 │     16% │ ███ 8.                                                              │
+│   71 │     32% │ ██████ SSO via SAML 2.                                              │
+│   72 │     58% │ ████████████ 0 is available on Business and Enterprise plans only.  │
+│   73 │     30% │ ██████ ## Important Note                                            │
+│   74 │     59% │ ████████████ This is a support context.                             │
+│   75 │     17% │ ███ Be helpful.                                                     │
+│   76 │     21% │ ████ Responses should feel human.                                   │
+└──────┴─────────┴─────────────────────────────────────────────────────────────────────┘
+
+──────────────────────────────────────── Stats ──────────────────────────────────────────
+
+  Phrases        76
+  Top phrase     "Avoid jargon unless the user is clearly a develo..."  (100%)
+  Dead weight    46% of phrases below 25% impact
+  API calls      77 (1 baseline + 76 perturbations)
+
+────────────────────────────────── Baseline Output ──────────────────────────────────────
+
+  It sounds like your GitHub integration isn't syncing correctly after the Luma update,
+  and I can certainly help you get that back on track.
+
+  Often, after an update, integrations just need a quick refresh. Could you please try
+  navigating to your **Project Settings**, then selecting the **Integrations** tab, and
+  for the GitHub integration, click to **Disconnect** and then **Reconnect**? This
+  usually resolves syncing issues.
+
+  Please let me know if that gets your GitHub integration syncing again, or if you need
+  further assistance!
+
+  Legend: ██ low impact  ██ medium  ██ high impact
+```
+
+</details>
 
 ## Quick Start
 
