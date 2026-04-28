@@ -6,6 +6,74 @@ Paste your agent prompt, system instructions, or `SKILL.md` — rapt runs salien
 
 Supports perturbation, omission, paraphrase, hierarchical ablation, and counterfactual analysis with optional component classification and embedding-based semantic similarity.
 
+## Example Output
+
+Running rapt on a customer support agent system prompt against the query _"My GitHub integration stopped syncing after I updated Luma."_:
+
+```
+$ uv run rapt examples/customer_support_agent.md -p google --system \
+    -c "My GitHub integration stopped syncing after I updated Luma." -v
+
+  rapt  |  google/gemini-2.5-flash  |  perturbation  |  76 phrases
+
+──────────────────────── Saliency Map (verbose) ────────────────────────
+
+  #    Score   Phrase
+  ─────────────────────────────────────────────────────────────────────
+   1    56%   ███████████ # Customer Support Agent
+   2    27%   █████ You are Aria, a senior customer support specialist…
+   3    92%   ██████████████████ a cloud-based project management platform
+                used by software teams worldwide.
+   4    61%   ████████████ ## Persona
+   5    26%   █████ Your name is Aria.
+   6    58%   ████████████ You are empathetic, concise, and technically fluent.
+   7    62%   ████████████ You speak in a warm but professional tone.
+   8   100%   ████████████████████ Avoid jargon unless the user is clearly
+                a developer.
+   9    92%   ██████████████████ Never be sarcastic or dismissive, even
+                when a user is frustrated.
+  ...
+  59    61%   ████████████ - The user explicitly asks to speak to a human.
+  61    59%   ████████████ To escalate, say: "I'm going to loop in a
+                specialist who can give this the dedicated attention…"
+  74    59%   ████████████ This is a support context.
+  75    17%   ███ Be helpful.
+  76    21%   ████ Responses should feel human.
+
+──────────────────────────────── Stats ─────────────────────────────────
+
+  Phrases        76
+  Top phrase     "Avoid jargon unless the user is clearly a develo…"  (100%)
+  Dead weight    46% of phrases below 25% impact
+  API calls      77 (1 baseline + 76 perturbations)
+
+──────────────────────────── Baseline Output ────────────────────────────
+
+  It sounds like your GitHub integration isn't syncing correctly after
+  the Luma update, and I can certainly help you get that back on track.
+
+  Often, after an update, integrations just need a quick refresh. Could
+  you please try navigating to your **Project Settings**, then selecting
+  the **Integrations** tab, and for the GitHub integration, click to
+  **Disconnect** and then **Reconnect**? This usually resolves syncing
+  issues.
+
+  Please let me know if that gets your GitHub integration syncing again,
+  or if you need further assistance!
+
+  Legend: ██ low impact  ██ medium  ██ high impact
+```
+
+**What this reveals at a glance:**
+
+- `Avoid jargon unless the user is clearly a developer` scores **100%** — the single most load-bearing phrase. Remove it and the model's register shifts noticeably.
+- `a cloud-based project management platform…` and `Never be sarcastic or dismissive…` both score **92%** — product identity and tone guardrails are doing heavy lifting.
+- `Be helpful.` scores only **17%** — classic dead weight. The prompt works the same without it.
+- **46% of phrases** fall below 25% impact — nearly half the prompt is not earning its token budget.
+- The escalation exact-wording phrase scores **59–65%** — the scripted handoff line is genuinely shaping behaviour.
+
+This is the kind of signal that lets you cut a 76-phrase prompt to its essential core without guessing.
+
 ## Quick Start
 
 ```bash
